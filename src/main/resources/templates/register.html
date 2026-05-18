@@ -2,31 +2,103 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-top: 5px solid #007bff;
+            text-align: center;
+            width: 320px;
+        }
+        h1 {
+            color: #007bff;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .footer-text {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<form th:action="@{/register}" method="post" th:object="${request}">
 
-    <input type="text"
-           th:field="*{username}"
-           placeholder="Username">
+<div class="container">
+    <h1>Register</h1>
+    <form th:action="@{/register}" method="post" th:object="${request}">
 
-    <input type="password"
-           th:field="*{password}"
-           placeholder="Password">
+        <input type="text"
+               th:field="*{username}"
+               placeholder="Username" required>
 
-    <input type="text"
-           th:field="*{nama}"
-           placeholder="Nama">
+        <input type="password"
+               th:field="*{password}"
+               placeholder="Password" required>
 
-    <input type="text"
-           th:field="*{alamat}"
-           placeholder="Alamat">
+        <input type="text"
+               th:field="*{nama}"
+               placeholder="Nama" required>
 
-    <button type="submit">
-        Register
-    </button>
+        <input type="text"
+               th:field="*{alamat}"
+               placeholder="Alamat" required>
 
-</form>
+        <button type="submit">
+            Register
+        </button>
+
+    </form>
+    
+    <div class="footer-text">
+        <p>Sudah punya akun? <a th:href="@{/login}">Login disini</a></p>
+    </div>
+</div>
+
 </body>
 </html>
